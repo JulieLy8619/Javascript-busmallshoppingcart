@@ -12,7 +12,9 @@ function populateForm() {
   //TODO: Add an <option> tag inside the form's select for each product
   var selectElement = document.getElementById('items');
   for (var i in Product.allProducts) {
-
+    var optionElement = document.createElement('option');
+    optionElement.textContent = Product.allProducts[i].name;
+    selectElement.appendChild(optionElement);
   }
 
 }
@@ -23,6 +25,11 @@ function populateForm() {
 function handleSubmit(event) {
 
   // TODO: Prevent the page from reloading
+  event.preventDefault();
+  event.stopPropagation();
+  // console.log(event);
+  localStorage.setItem('submittedItemName', event.target.items.value);
+  localStorage.setItem('submittedItemQty', event.target.quantity.value);
 
   // Do all the things ...
   addSelectedItemToCart();
