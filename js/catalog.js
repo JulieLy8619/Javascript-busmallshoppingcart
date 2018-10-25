@@ -27,15 +27,6 @@ function handleSubmit(event) {
   // TODO: Prevent the page from reloading
   event.preventDefault();
   event.stopPropagation();
-  // console.log(event);
-  //localStorage.setItem('submittedItemName', event.target.items.value);
-  //CartItem.name = event.target.items.value;
-  //localStorage.setItem('submittedItemQty', event.target.quantity.value);
-  // CartItem.name = event.target.quantity.value
-  //console.log(event.target.items.value, event.target.quantity.value);
-  //cart.addItem(event.target.items.value, event.target.quantity.value);
-  
-  //console.log(cart, 'cart');
 
   // Do all the things ...
   addSelectedItemToCart();
