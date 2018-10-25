@@ -20,7 +20,7 @@ function renderCart() {
 
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
 function clearCart() {
-  var rowToDeleteContainer = document.getElementById('cart');
+  //var rowToDeleteContainer = document.getElementById('cart');
   //rowToDeleteContainer.deleterow(0);
 }
 
@@ -42,6 +42,7 @@ function showCart() {
     //console.log('in for loop');
     var tdLinkEl = document.createElement('td');
     tdLinkEl.textContent = ('X');
+    tdLinkEl.classList.add('removelistitem');
     var tdQtyEl = document.createElement('td');
     tdQtyEl.textContent = cart.items[i].quantity;
     var tdNameEl = document.createElement('td');
@@ -54,7 +55,14 @@ function showCart() {
 }
 
 function removeItemFromCart(event) {
-
+  console.log(event);
+  if(event.target.classList.contains('removelistitem')) {
+    //console.log('before ' + cart.items.length);
+    //var temp = localStorage.getItem()
+    //console.log(event.target.id);
+    //cart.removeItem(parseInt(event.target.id));
+    //console.log('after ' + cart.items.length);
+  }
   // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
   // TODO: Save the cart back to local storage
   // TODO: Re-draw the cart table
