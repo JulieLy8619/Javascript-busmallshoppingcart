@@ -31,9 +31,9 @@ function handleSubmit(event) {
   //localStorage.setItem('submittedItemName', event.target.items.value);
   //CartItem.name = event.target.items.value;
   //localStorage.setItem('submittedItemQty', event.target.quantity.value);
- // CartItem.name = event.target.quantity.value
- //console.log(event.target.items.value, event.target.quantity.value);
-  cart.addItem(event.target.items.value, event.target.quantity.value);
+  // CartItem.name = event.target.quantity.value
+  //console.log(event.target.items.value, event.target.quantity.value);
+  //cart.addItem(event.target.items.value, event.target.quantity.value);
   
   //console.log(cart, 'cart');
 
@@ -51,15 +51,31 @@ function addSelectedItemToCart() {
   // TODO: suss out the item picked from the select list
   // TODO: get the quantity
   // TODO: using those, add one item to the Cart
+  var pickedItem = document.getElementById('items').value;
+  var pickedQty = document.getElementById('quantity').value;
+  cart.addItem(pickedItem,pickedQty);
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {}
+function updateCounter() {
+  //console.log ('updatecounter ' + cart.items.length);
+  //return(cart.items.length);
+  var updateContainerEl = document.getElementById('itemCount');
+  updateContainerEl.textContent = (' ' + cart.items.length);
+  //updateContainerEl.appendChild();
+}
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
   // TODO: Get the item and quantity from the form
   // TODO: Add a new element to the cartContents div with that information
+  var previewItem = document.getElementById('items').value;
+  var previewQty = document.getElementById('quantity').value;
+  var previewEl = document.getElementById('cartContents');
+  var divEl = document.createElement('div');
+  divEl.textContent = previewItem + ': ' + previewQty;
+  previewEl.appendChild(divEl);
+
 }
 
 // Set up the "submit" event listener on the form.
