@@ -25,7 +25,7 @@ Cart.prototype.removeItem = function(prod) {
   //we choose the parameter name of the product
   // var removeIndexNumber = 0;
 
-  for (var i = 0; i < this.items.length -1 ; i++) {
+  for (var i = 0; i < this.items.length; i++) {
     if (this.items[i].product === prod) {
       this.items.splice(i,1);
     }

@@ -43,6 +43,7 @@ function showCart() {
     var tdLinkEl = document.createElement('td');
     tdLinkEl.textContent = ('X');
     tdLinkEl.classList.add('removelistitem');
+    tdLinkEl.id= cart.items[i].product;
     var tdQtyEl = document.createElement('td');
     tdQtyEl.textContent = cart.items[i].quantity;
     var tdNameEl = document.createElement('td');
@@ -59,9 +60,11 @@ function removeItemFromCart(event) {
   if(event.target.classList.contains('removelistitem')) {
     //console.log('before ' + cart.items.length);
     //var temp = localStorage.getItem()
-    //console.log(event.target.id);
-    //cart.removeItem(parseInt(event.target.id));
+    //console.log('target.id ' + event.target.id);
+    cart.removeItem(event.target.id);
     //console.log('after ' + cart.items.length);
+    cart.saveToLocalStorage();
+    renderCart();
   }
   // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
   // TODO: Save the cart back to local storage
