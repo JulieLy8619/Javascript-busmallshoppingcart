@@ -21,7 +21,6 @@ function renderCart() {
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
 function clearCart() {
   var rowToDelete = document.querySelectorAll('#cart tr');
-//console.log(tableRows);
   for (var i = 0; i <= rowToDelete.length; i++) {
     if (rowToDelete[i]) {
       rowToDelete[i].remove();
@@ -41,11 +40,9 @@ console.log('in show cart ' + cart.items.length);
   // TODO: Create a TR
   // TODO: Create a TD for the delete link, quantity,  and the item
   // TODO: Add the TR to the TBODY and each of the TD's to the TR
-  //var thEl = document.createAttribute('th');
-  //trEl.appendChild(thEl);
+
   for (var i = 0; i < cart.items.length; i++){
     var trEl = document.createElement('tr');
-    //console.log('in for loop');
     var tdLinkEl = document.createElement('td');
     tdLinkEl.textContent = ('X');
     tdLinkEl.classList.add('removelistitem');
@@ -62,13 +59,8 @@ console.log('in show cart ' + cart.items.length);
 }
 
 function removeItemFromCart(event) {
-  //console.log(event);
   if(event.target.classList.contains('removelistitem')) {
-    //console.log('before ' + cart.items.length);
-    //var temp = localStorage.getItem()
-    //console.log('target.id ' + event.target.id);
     cart.removeItem(event.target.id);
-    //console.log('after ' + cart.items.length);
     cart.saveToLocalStorage();
     renderCart();
   }
