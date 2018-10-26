@@ -4,7 +4,7 @@
 var Cart = function(items) {
   // this.items is an array of CartItem instances.
   this.items = items;
-  this.removeFromList= false;
+  //this.removeFromList= false;
 };
 
 Cart.prototype.addItem = function(product, quantity) {
